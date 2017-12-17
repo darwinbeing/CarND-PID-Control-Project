@@ -31,13 +31,13 @@ void Twiddle::Init(double tol, const std::vector<double>& p, const std::vector<d
 }
 
 void Twiddle::UpdateError(double error) {
-  if (!tune_) return ;
+  if (!tune_) return;
 
   double sum_dp = std::accumulate(dp_.begin(), dp_.end(), 0.0);
   if (sum_dp < tolerance_) {
     tune_ = false;
     std::cout << "Type: " << type_ << " Kp: " << p_[0] << " Ki: " << p_[1] << " Kd: " << p_[2] << std::endl;
-    return ;
+    return;
   }
 
   // error_ += error * error;
